@@ -18,7 +18,11 @@ import com.example.demo.dto.Inventory;
 @RequestMapping("/inventories")
 public class InventoryController {
 	
-	@Autowired CommandGateway gateway;
+	 private final CommandGateway gateway;
+	 
+	 public InventoryController(CommandGateway gateway) {
+		 this.gateway= gateway;
+	 }
 	
 	@PostMapping
 	public CompletableFuture<Object> insertInventory(@RequestBody Inventory i) {

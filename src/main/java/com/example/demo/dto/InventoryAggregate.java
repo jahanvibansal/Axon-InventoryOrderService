@@ -22,17 +22,19 @@ public class InventoryAggregate {
 	private String sku;
 	private Integer quantity;
 	
-	public InventoryAggregate() {
+	private InventoryAggregate() {
 	}
 
 	@CommandHandler
 	public InventoryAggregate(InsertInventoryCommand command) {
+		this.inventoryId= command.getInventoryId();
+		//puts event into the event bus
 		AggregateLifecycle.apply(new InventoryInsertedEvent(command.getProductId(), String.valueOf(command.getInventoryId()),
 				command.getSku(), command.getQuantity()));
 	}
 
 	@CommandHandler
-	public void updateInventory(UpdateInventoryCommand command) {
+	public void handle(UpdateInventoryCommand command) {
 		AggregateLifecycle.apply(new InventoryUpdatedEvent(command.getProductId(), String.valueOf(command.getInventoryId()),
 				command.getQuantity()));
 	}

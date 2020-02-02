@@ -59,6 +59,13 @@
 			<artifactId>axon-spring-boot-starter</artifactId>
 			<version>4.2.1</version>
 		</dependency>
+		<!-- instantiates axon-hub command handler and provides info to axon hub 
+			that resolves handlers provided in our components -->
+		<!-- https://mvnrepository.com/artifact/io.axoniq.axonhub/axonhub-spring-boot-autoconfigure -->
+<!-- https://mvnrepository.com/artifact/io.axoniq/axonhub-spring-boot-autoconfigure -->
+
+
+
 	</dependencies>
 
 	<build>
